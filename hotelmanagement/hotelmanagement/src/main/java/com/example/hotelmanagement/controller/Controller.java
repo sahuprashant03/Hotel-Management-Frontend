@@ -2,23 +2,20 @@ package com.example.hotelmanagement.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.hotelmanagement.entity.Credential;
+import com.example.hotelmanagement.entity.Booking;
 import com.example.hotelmanagement.entity.Customer;
-import com.example.hotelmanagement.service.CustomerDaoService;
+import com.example.hotelmanagement.service.BookingServiceJPA;
 import com.example.hotelmanagement.service.UserServiceJPA;
-import com.sun.el.stream.Optional;
+
 
 
  
@@ -30,6 +27,9 @@ public class Controller {
 	private CustomerDaoService customerDaoService;*/
 	@Autowired
 	private UserServiceJPA userServiceJpa;
+	@Autowired
+	private BookingServiceJPA bookingService;
+	
 	
 	@ModelAttribute
 	public void setResponseHeader(HttpServletResponse response){
@@ -42,15 +42,11 @@ public class Controller {
 		JSONObject jsonObject = new JSONObject(credential);
 		String userid = jsonObject.getString("userid");
 		String password = jsonObject.getString("password");
-		String str="";
-    	
+		
     	if(userid.equals("sahu@123") && password.equals("1234"))
     	{
-    	List<Customer> customers = new ArrayList<>();
-    	for(Customer cus : userServiceJpa.findAll()) {
-    		str= str+ cus.toString() +"\n";
-    	    }
-    	return str;
+    	
+    	return "Login successfully!!";
     	}
     	else {
     		return "Incorrect UserId or Password !";
@@ -68,8 +64,8 @@ public class Controller {
 	public Customer test2(@RequestBody String str) {
 		Customer cus = new Customer(1,"prashant","male",12333,"gold","asf","dchvdsjhc","fhvsdfh");
 		//String r = str.replace("\"", "");
-		JSONObject jsonObject = new JSONObject(str);
-	String name = jsonObject.getString("name");
+		//JSONObject jsonObject = new JSONObject(str);
+	//String name = jsonObject.getString("name");
 		
 		return cus;
 	}
@@ -111,9 +107,8 @@ public class Controller {
     	JSONObject jsonObject = new JSONObject(credential);
 		String userid = jsonObject.getString("userid");
 		String password = jsonObject.getString("password");
-		String str="";
-    		
-    	List<Customer> customers = new ArrayList<>();
+	
+    	
     	for(Customer cus : userServiceJpa.findAll()) {
     		if(userid.equals(cus.getUserid())&& password.equals(cus.getPassword())) {
     			return "success";
@@ -144,4 +139,84 @@ public class Controller {
 		 
 	}
     
+    @RequestMapping(value="saveBookingDetails",method=RequestMethod.POST)
+    public String saveBookingDetails(@RequestBody String book) {
+    	
+    	
+    	try{ long count = bookingService.count();
+		JSONObject jsonObject = new JSONObject(book);
+		long id=count+1;
+		 String name = jsonObject.getString("name");
+		 
+		 String gender  = jsonObject.getString("gender");
+		 long mobileNo  = jsonObject.getLong("mobileno");
+		 String roomtype = jsonObject.getString("roomtype");
+		 String startdate = jsonObject.getString("startdate");
+		 String enddate = jsonObject.getString("enddate");
+		 int membercount = jsonObject.getInt("membercount");
+		 long amount = jsonObject.getLong("amount");
+		 String paymentmode = jsonObject.getString("paymentmode");
+		 Booking bok = new Booking(id,name,gender,roomtype,startdate,enddate,mobileNo,membercount,amount,paymentmode);
+		 bookingService.save(bok);
+		 }
+	    catch(Exception e) {
+		return e.getMessage();
+	       };
+	 return "Booked successfully!";	
+    }
+    
+    @RequestMapping(value="getBookingDetails",method=RequestMethod.GET)
+    public List<Booking> getBookingDetails(){
+    	List<Booking> booking = new ArrayList<>();
+    	for(Booking book : bookingService.findAll()) {
+    		
+    		booking.add(book);
+    	}
+    	return booking;
+    }
+    @RequestMapping(value="deleteBooking",method=RequestMethod.POST)
+  public String deleteBooking(@RequestBody String id) {
+    	JSONObject jsonObject = new JSONObject(id);
+    	Long id1 = jsonObject.getLong("id");
+    	try {
+    	for(Booking book : bookingService.findAll()) {
+    		if(book.getId()==id1) {
+    			bookingService.deleteById(id1);
+    			return "Booking cancelled successfully!";
+    		} }
+    	}catch(Exception e) {
+    		return e.getMessage();
+    	};
+    	   
+    return "Booking Id not found !";
+    
+  }  
+    @RequestMapping(value="cancelBooking",method=RequestMethod.GET)
+    public String cancelBooking() {
+    	long count = bookingService.count();
+    
+    	try {
+    	for(Booking book : bookingService.findAll()) {
+    		if(book.getId()==count) {
+    			bookingService.deleteById(count);
+    			return "Booking cancelled successfully!";
+    		} }
+    	}catch(Exception e) {
+    		return e.getMessage();
+    	};
+    	   
+    return "Booking Id not found !";
+    
+    }
+    
+    @RequestMapping(value="getCustomerDetails",method=RequestMethod.GET)
+    public List<Customer> getCustomerDetails(){
+    	List<Customer> customer = new ArrayList<>();
+    	for(Customer cus : userServiceJpa.findAll()) {
+    		
+    		customer.add(cus);
+    	}
+    	return customer;
+    }
+  
 }

@@ -5,7 +5,7 @@ import com.example.hotelmanagement.entity.Customer;
 public class CustomerDaoService {
 
 	public String authentication(Customer credential) {
-		UserServiceJPA repository ;
+		//UserServiceJPA repository ;
 		
 		return "Login successfully!";
 
