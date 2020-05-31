@@ -4,40 +4,37 @@
 <title>Details</title> 
 <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
 <link rel = "icon" href =  
-"img/icon.jpeg" 
+"../img/icon.jpeg" 
         type = "image/x-icon">
-<script>
-function details(){
-var pre = '<tr class="table-info"><th scope="col">Name</th><th scope="col">UserID</th><th scope="col">Password</th></tr>';
-var data=[{"name":"Prashant","userid":"sahu@123","password":"1234"},
-{"name":"Prashant","userid":"sahu@123","password":"1234"},
-{"name":"Prashant","userid":"sahu@123","password":"1234"}]
-var txt="";
-for(var i=0;i<data.length;i++){
-txt=txt+"<tr><td>"+data[i].name+"</td><td>"+data[i].userid+"</td><td>"+data[i].password+"</td></tr>";
-
+	<link rel="stylesheet" href="../CSS/details.css">	
+<script src="../JS/details.js">
+</script>
+<script type = "text/javascript" >
+function disableBackButton()
+{
+window.history.forward();
 }
-document.getElementById("table").innerHTML=pre+txt;
-}
+setTimeout("disableBackButton()", 0);
 </script>
 </head>  
-<body class="body" onload="details()">
+<body class="body" >
 
-<form class="container">
-<div class="container-fluid bg-primary text-white"><center><h1>Hyatt Hotel<h1></center></div>
-<div class="container-sm border"><center><h2>Customer's details<h1><table id="table" class="table table-hover">
-<tr><th scope="col">Name</th><th scope="col">UserID</th><th scope="col">Password</th></tr>
-<tr class="table-info">
-</table></br>
-</center>
-</div></form>
-<form class="form-inline"><div class="container bg-primary text-white">
-  <label>Enter ID to remove customer:</label>
- <center> <input type="number" class="form-control" placeholder="Enter id" id="id">
-          
-       
-		<button type="button" class="btn btn-danger">Remove</button></center></div>
-      </form>
-<p id="text1"></p>
+<div id="header" class="container-fluid bg-primary text-white">
+<center><h1>Hyatt Hotel</h1></center>
+<button type="button" class="btn btn-outline-danger" id="logout" onclick="logout()">Logout</button>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab"onclick="getCustomerDetails()" >Customer details</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" onclick="getBookingDetails()">Booking Details</a>
+  </li>
+ </ul>
+ <div id="myTabContent" class="tab-content">
+<div class="tab-pane fade active show" id="cusdetails"><table class="table border" id="detailstable"></table>
+<div id ="removeuser"></div>
+
+
 </body>  
 </html>  

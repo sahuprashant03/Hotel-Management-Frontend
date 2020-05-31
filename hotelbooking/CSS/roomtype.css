@@ -1,0 +1,85 @@
+.b1 {
+	cursor:pointer;
+
+background-color: #99ccff;
+}
+#price1 {
+	color :blue;
+	font-size:20px;
+	height:50;
+	
+	 position:relative;
+  top: 150px;
+  right: 0;
+}
+#price2 {
+	color :blue;
+	font-size:20px;
+	height:50;
+	
+	 position:relative;
+  top: 80px;
+  right: 0;
+}
+#price3 {
+	color :blue;
+	font-size:20px;
+	height:50;
+	
+	 position:relative;
+  top: 10px;
+  right: 0;
+}
+#list {
+	font-size:20px;
+	text-align:left;
+	color:#d580ff;
+}
+.root{
+background-image: url('../img/roombooking.jpg');
+background-size: 100% 100%;
+}
+.card1 {
+background-image: url('../img/card.jfif');
+background-size: cover;
+float:left;
+margin: 65px;
+height:400;
+width:300;
+color:white;
+background-size: 100% 100%;
+border: 3px solid #73AD21;
+text-align:center;
+}
+.card2 {
+background-image: url('../img/card.jfif');
+background-size: cover;
+float:left;
+margin: 65px;
+height:400;
+width:300;
+color:white;
+background-size: 100% 100%;
+border: 3px solid #73AD21;
+text-align:center;
+}
+.card3 {
+background-image: url('../img/card.jfif');
+background-size: cover;
+float:left;
+margin: 65px;
+height:400;
+width:300;
+color:white;
+background-size: 100% 100%;
+border: 3px solid #73AD21;
+text-align:center;
+}
+#logout {
+	margin-top:-20px;
+	margin-left:600px;
+	color:white;
+	cursor:pointer;
+
+background-color: red;
+}

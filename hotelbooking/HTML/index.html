@@ -2,11 +2,19 @@
 <html>  
 <head> 
 <title>Login-page</title> 
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="../CSS/index.css">
 <link rel = "icon" href =  
-"img/icon.jpeg" 
+"../img/icon.jpeg" 
         type = "image/x-icon"> 
-<script src="index.js"></script>
+<script src="../JS/index.js"></script>
+<script type = "text/javascript" >
+function disableBackButton()
+{
+window.history.forward();
+}
+setTimeout("disableBackButton()", 0);
+</script>
+
 </head>  
 <body class="body1">
 <div class="body" background-image: url('mmindex.jpg');>

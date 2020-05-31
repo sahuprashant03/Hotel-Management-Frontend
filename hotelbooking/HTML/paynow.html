@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment</title> 
+<link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<link rel = "icon" href =  
+"../img/icon.jpeg" 
+        type = "image/x-icon">
+		
+		<script src="../JS/paynow.js">
+</script>
+<script type = "text/javascript" >
+function disableBackButton()
+{
+window.history.forward();
+}
+setTimeout("disableBackButton()", 0);
+</script>
+
+</head>
+<body class="body">
+
+
+<div class="container">
+  <center><h2>Pay Amount</h2>
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="price()">
+    Proceed for Payment
+  </button></center>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4  class="modal-title">Payment</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div id="textbox" class="modal-body">
+          Payment Amount
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal" onclick="paid()">Pay Now</button>
+		  <button type="button" class="btn btn-danger" data-dismiss="modal"onclick="cancel()">Cancel</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+</body>
+</html>

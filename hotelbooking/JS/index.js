@@ -2,7 +2,6 @@
 function getDetails(){
 	var adminid = document.getElementById("aid").value;
 	var adminpswd = document.getElementById("pswd").value;
-	alert(adminid+adminpswd)
 	var data = {"userid":adminid,"password":adminpswd};
 	
 	fetch('http://localhost:9090/adminLogin', {
@@ -16,9 +15,15 @@ var data= response.text();
 console.log(data);
 const p = Promise.resolve(data);
 p.then(value=> {
-	console.log(value);
-	window.location="customerdetails.html";
-document.getElementById("details").innerHTML=value;
+	if(value=='Login successfully!!'){
+		alert(value);
+	window.location="details.html";
+	}
+	else{
+		alert(value);
+		return;
+	}
+//document.getElementById("details").innerHTML=value;
 }
 
 );
@@ -63,7 +68,7 @@ p.then(value=> {
 if(value=="success")
 {
 alert("Login Successfully");
-window.location = "booking.html";
+window.location = "../HTML/roomtype.html";
 }
 else
 {

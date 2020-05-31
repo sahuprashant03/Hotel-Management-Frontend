@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Booking-details</title> 
+<link rel="stylesheet" href="../CSS/bookingdetails.css">
+<link rel = "icon" href =  
+"../img/icon.jpeg" 
+        type = "image/x-icon">
+		
+		<script src="../JS/bookingdetails.js">		</script>
+		<script>
+		function roomtype(){
+	window.location="../HTML/roomtype.html";
+}</script>
+<script type = "text/javascript" >
+function disableBackButton()
+{
+window.history.forward();
+}
+setTimeout("disableBackButton()", 0);
+</script>
+
+</head>
+<body class="body">
+
+<form>
+<div class="header"><h1>Hyatt Hotel<h1><button type="button" class="button1" id="back" value="Back" onclick="roomtype()" >Back</button></div>
+<div id="here" class="form"><center><h2>Booking details<h1></center>
+
+<table class="table1">
+    <tr>
+        <td><label>Name:</label></br></br></td>
+        <td><input type="text" id="name" ></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Gender:</label></br></br></td>
+        <td><select id="gender">
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="other">Other</option>
+</select></br></br></td>
+    </tr>
+	<tr>
+        <td><label>No.of member:</label></br></br></td>
+        <td><input type="number" id="membercount" /></br></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Room type :</label></br></br></td>
+        <td><div id="roomtype"></div></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Mobile No.:</label></br></br></td>
+        <td><input type="number" id="MobileNo" /></br></br></td>
+    </tr>
+	<tr>
+        <td><label>check-in date:</label></br></br></td>
+        <td><input type="date" id="checkin" /></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Check-out date:</label></br></br></td>
+        <td><input type="date" id="checkout" /></br></br></td>
+    </tr>
+	
+	<tr>
+        <td><label>Payment Mode:   </label></br></br></td>
+        <td><select id="paymentmode">
+  <option value="Credit">Credit</option>
+  <option value="debit">Debit</option>
+  <option value="wallet">Wallet</option>
+</select>	
+		</br></br></td>
+    </tr>
+	
+	
+</table>
+<input type="button" class="button1" value="Submit" onclick="booking()"/></br>
+
+</body>
+</html>

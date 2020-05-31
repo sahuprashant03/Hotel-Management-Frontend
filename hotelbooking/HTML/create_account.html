@@ -1,17 +1,28 @@
 <html>
 <head>
 <title>Create-Account</title> 
-<link rel="stylesheet" href="create_account.css">
+<link rel="stylesheet" href="../CSS/create_account.css">
 <link rel = "icon" href =  
-"img/icon.jpeg" 
+"../img/icon.jpeg" 
         type = "image/x-icon">
 		
-		<script src="create_account.js"></script>
+		<script src="../JS/create_account.js"></script>
+		<script type = "text/javascript" >
+function disableBackButton()
+{
+window.history.forward();
+}
+setTimeout("disableBackButton()", -5);
+function backbutton(){
+window.location="../HTML/index.html";
+}
+</script>
+
 </head>
 <body class="body">
 
 <form>
-<div class="header"><h1>Hyatt Hotel<h1></div>
+<div class="header"><h1>Hyatt Hotel<h1><button type="button" class="button1" id="back" value="Back" onclick="backbutton()" >Back</button></div>
 <div class="form"><center><h2>Create Account<h1></center>
 
 <table class="table">

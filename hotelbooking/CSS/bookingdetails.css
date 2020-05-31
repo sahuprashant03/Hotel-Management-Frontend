@@ -16,7 +16,7 @@ background-image: url('../img/card2.jpg');
 background-size: cover;
 float:center;
 margin: 100px 500px;
-height:370;
+height:490;
 width:300;
 color:white;
 background-size: 100% 100%;
@@ -28,7 +28,7 @@ cursor:pointer;
 border-radius: 8px;
 background-color: #008CBA;
 }
-.table {
+.table1 {
 	color:white;
 	float:center;
 	position:relative;

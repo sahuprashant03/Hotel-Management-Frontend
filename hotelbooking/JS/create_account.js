@@ -8,10 +8,32 @@ var password = document.getElementById("password").value;
 var rslt;
 var str="";
 var data = {"name":name,"gender":gender,"address":address,"mobileno":mobileno,"userid":userId,"password":password};
-if(userId==''|| password==''||name==''||gender==''||address==''||mobileno==''){
-	alert("Enter all the details!!");
+if(userId!=''&& password!=''&&name!=''&&gender!=''&&address!=''&&mobileno!=''){
+	
+	if(mobileno<6000000000||mobileno>9999999999){
+		alert("Enter Valid mobile no. !!");
+		return;
+	}
+	//console.log(userId.length);
+	
+	if(userId.length<5)
+	{
+		alert("User ID should contain more than 4 character !!");
+		return;
+	}
+	if(password.length<5)
+	{
+		alert("Password should contain more than 4 character !!");
+		return;
+	}
+}
+else{
+	alert("Enter all the details !");
 	return;
 }
+
+
+
 function checkUserid(userId){
 	var req = {"userid":userId};
 	
