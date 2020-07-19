@@ -1,11 +1,16 @@
-
+<!DOCTYPE html>
 <html>
 <head>
 <title>Hyatt Hotel</title>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="../CSS/roomtype.css">
+<link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.css">
 <link rel = "icon" href =  
 "../img/icon.jpeg" 
         type = "image/x-icon">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>		
 <script src="../JS/roomtype.js"></script>
 <script type = "text/javascript" >
 function disableBackButton()
@@ -16,22 +21,40 @@ setTimeout("disableBackButton()", 0);
 </script>
 
 </head>
-<body class="root" ><p>
-<div class="body" ></div><center>
-<h1><font color="#ffcccc" >Hyatt Room Booking Portal</font><h1></center><button id="logout" class="b1" onclick="logout()">Logout</button>
-<div class="card1" ><h2>SILVER<h2>
+<body class="root" >
+<div id="header">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<center>
+<h1><font color="#ffcccc" >Hyatt Room Booking Portal</font><h1></center>
+
+<div id="userprofile"class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  
+  <button type="button" id="userMenu"  class="btn btn-info"><div id="userInfo">
+  <img id="profilepic" src="../img/default.png"/><p id="userName"></p></div></button>
+  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" >
+	</button>
+    <div id="profileDropdown" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+	 <button id= "editPic" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateUserDetails" onclick="getUserDetails()" >Edit Profile</button>
+	  <button id= "editPic" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" >change ProfilePicture</button>
+      <a class="dropdown-item" href="../HTML/index.html">Logout</a>
+    </div>
+  </div>
+</div>
+<nav>
+</div>
+<div id="roomdetails" class="row">
+<div id="card1" class="col-sm-3" ><h2>SILVER<h2>
 <ul id="list">
   <li>Single bed</li>
   <li>24x7 Power backup</li>
   <li>Free Parking</li>
 </ul>
 <div id="price1">Price:1500Rs/Day</br>
-<button id="buynow" class="b1"onclick="silver()">Book Now</button>
-<h6 style="color:black">*for two people 2000Rs/day</h6>
-</div>
-
-</div>
-<div class="card2"><h2 style="color:#ffdb4d">GOLD<h2>
+<button id="buynow" class="btn btn-primary"onclick="silver()">Book Now</button>
+<h6 style="color:black"></br>*for two people 2000Rs/day</h6>
+</div></div>
+<div id="card2" class="col-sm-3"><h2 style="color:#1a0033;">GOLD<h2>
 <ul id="list">
   <li>AC</li>
   <li>Free Wifi</li>
@@ -41,10 +64,10 @@ setTimeout("disableBackButton()", 0);
   <li>Free Parking</li>
 </ul>
 <div id="price2">Price:2000Rs/Day</br>
-<button id="buynow" class="b1"  onclick="gold()">Book Now</button>
-<h6 style="color:black">*for two people 2500/day</h6>
+<button id="buynow" class="btn btn-primary"  onclick="gold()">Book Now</button>
+<h6 style="color:black"></br>*for two people 2500/day</h6>
 </div></div>
-<div class="card3"><h2 style="color:#E5E4E2">PLATINUM<h2>
+<div id="card3" class="col-sm-3" ><h2 style="color#1a0033;">PLATINUM<h2>
 <ul id="list">
   <li>AC</li>
   <li>TV</li>
@@ -57,10 +80,77 @@ setTimeout("disableBackButton()", 0);
   <li>24x7 Power backup</li>
 </ul>
 <div id="price3">Price:3000Rs/Day</br>
-<button id="buynow" class="b1" onclick="platinum()">Book Now</button>
-<h6 style="color:black">*for two people 3500/day</h6>
+<button id="buynow" class="btn btn-primary" onclick="platinum()">Book Now</button>
+<h6 style="color:black"></br>*for two people 3500/day</h6>
 </div></div>
-</p>
+<div>
+<div class="modal" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Change profile picture</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"> 
+        
+<input type="file" id="getfile" name="file" accept="image/*" />
+
+
+
+      </div>
+      <div class="modal-footer">
+	  <button id="upload" class="btn btn-primary" onclick="uploadFile()">Upload</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="updateUserDetails">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"> 
+        <table class="table">
+    <tr>
+        <td><label>Name:</label></td>
+        <td><input type="text" id="name"  required /></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Gender:</label></td>
+        <td><select id="gender">
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="other">Other</option>
+</select></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Address:</label></td>
+        <td><input type="text" id="address" required /></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Mobile No.:</label></td>
+        <td><input type="number" id="MobileNo" step="0.01" required /></br></br></td>
+    </tr>
+	<tr>
+        <td><label>Password:  </label></td>
+        <td><input type="text" id="password" required /></br></br></td>
+    </tr>
+</table>
+      </div>
+      <div class="modal-footer">
+	  <button id="upload" class="btn btn-primary" onclick="updateDetails()">Update</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <body>
 <html>

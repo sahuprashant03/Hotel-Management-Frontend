@@ -1,3 +1,11 @@
+var url =document.location.href,params = url.split('?')[1].split('&'),
+         data={},tmp;
+ params = url.split('?')[1].split('&'),
+         data={},tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+         tmp = params[i].split('=');
+         data[tmp[0]] = tmp[1];
+    }
 function getAmount(){
 var url =document.location.href,params = url.split('?')[1].split('&'),
          data={},tmp;
@@ -11,7 +19,8 @@ return data.amount;
 }
 function paid(){
 alert("Room Booked successfully !!");
-window.location="../HTML/roomtype.html";
+url = '../HTML/roomtype.html?userid='+data.userid;
+document.location.href = url;
 }	
 function price(){
 var p=getAmount();
@@ -35,10 +44,12 @@ console.log(p);
 p.then(value=> {
 	if(value=="Booking cancelled successfully!"){
 	alert(value);
-	window.location="../HTML/roomtype.html"
+	url = '../HTML/roomtype.html?userid='+data.userid;
+document.location.href = url;
 	}else{
 		alert("Room booked successfully!");
-    window.location="../HTML/roomtype.html"
+   url = '../HTML/roomtype.html?userid='+data.userid;
+document.location.href = url;
 	}
 		
 	});		

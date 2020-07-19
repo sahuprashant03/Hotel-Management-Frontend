@@ -1,40 +1,45 @@
 .body{
-background-image: url('../img/create.jpg');
+/*background-image: url('../img/create.jpg');*/
 background-size: csover;
+background-color: black;
 }
-.header{
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+#header{
+	
 text-align:center;
 color:#b3d9ff;
-border: 3px solid #ffa31a;
+/*border: 3px solid #ffa31a;*/
 text-color:#ffff66;
 font-family: "Lucida Console", Courier, monospace;
 }
-.form {
-	
-	position:absolute;
-background-image: url('../img/card2.jpg');
-background-size: cover;
-float:center;
-margin: 100px 500px;
-height:490;
-width:300;
-color:white;
-background-size: 100% 100%;
-border: 3px solid #73AD21;
-text-align:center;
-}
-.button1{
-cursor:pointer;
-border-radius: 8px;
-background-color: #008CBA;
-}
-.table1 {
-	color:white;
-	float:center;
+#bookingdetails{
 	position:relative;
-	text-align:left;
+	height:500px;
+margin:20px;
+width:380px;
+left:38%;
+top:5%;
+/*border-style: dashed;*/
+  color:#28004d;
+  background-color: #f3e6ff;
+  border-radius: 8px;
+}
+#table {
+	margin:0px 40px;
+
+	
+}
+#submit{
+	margin:0% 40%;;
 }
 #back{
 	position:relative;
-	margin-left:1200px;
+	margin-left:720px;
 }

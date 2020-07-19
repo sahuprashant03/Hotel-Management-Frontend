@@ -8,7 +8,16 @@ window.onload = function(){
          data[tmp[0]] = tmp[1];
     }
 	document.getElementById("roomtype").innerHTML=data.roomtype.toUpperCase();
+	//console.log(data.userid);
 }
+var url =document.location.href,params = url.split('?')[1].split('&'),
+         data={},tmp;
+ params = url.split('?')[1].split('&'),
+         data={},tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+         tmp = params[i].split('=');
+         data[tmp[0]] = tmp[1];
+    }
 function getRoomType(){
 var url =document.location.href,params = url.split('?')[1].split('&'),
          data={},tmp;
@@ -37,7 +46,7 @@ var startdate= date1.getDate()+'/'+(date1.getMonth()+1)+'/'+date1.getFullYear();
 var enddate= date2.getDate()+'/'+(date2.getMonth()+1)+'/'+date2.getFullYear();
 var days = (date2.getTime() - date1.getTime())/(1000*3600*24);
 var amount = calculateprice(room);
-var data={"name":name,"gender":gender,"roomtype":room,"startdate":startdate,"enddate":enddate,"paymentmode":paymentmode,"mobileno":mobileno,"membercount":member,"amount":amount,"paymentmode":paymentmode};
+var data1={"name":name,"gender":gender,"roomtype":room,"startdate":startdate,"enddate":enddate,"paymentmode":paymentmode,"mobileno":mobileno,"membercount":member,"amount":amount,"paymentmode":paymentmode};
 
 var today = new Date();
 var tdate = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
@@ -66,20 +75,20 @@ if(date2.getTime()<=date1.getTime()){
 	return;
 }
 
-console.log(data);
+//console.log(data);
 fetch('http://localhost:9090/saveBookingDetails', {
   method: 'POST', // or 'PUT'
   mode: 'cors',
-  body:JSON.stringify(data)    //'{"userid":"sahu@123","password":"1234"}'
+  body:JSON.stringify(data1)    //'{"userid":"sahu@123","password":"1234"}'
 })
 .then(response => {
 var res = response.text();
 var p = Promise.resolve(res);
-console.log(p);
+//console.log(p);
 p.then(value=> {
 	if(value=="Booked successfully!"){
-	//alert(value);
-	url = '../HTML/paynow.html?amount=' + encodeURIComponent(amount);
+	//alert(data.userid);
+	url = '../HTML/paynow.html?amount='+amount+'&userid='+data.userid;
 document.location.href = url;
 	}else{
 		alert(value);
@@ -111,6 +120,12 @@ function calculateprice(roomtype){
 
 
 function back(){
-	window.location="../HTML/roomtype.html";
+	
 }
-
+function test(){
+	//window.location="../HTML/roomtype.html";
+	//console.log(data.userid);
+	
+	url = '../HTML/roomtype.html?userid='+data.userid;
+document.location.href = url;
+}

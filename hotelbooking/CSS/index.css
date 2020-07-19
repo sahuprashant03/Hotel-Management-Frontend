@@ -1,9 +1,11 @@
-#head {
+.body1{
+	background-image: url('../img/index1.jpg');
+	background-color:#333333;
 	color:#ffa64d;
 	font-family: "Lucida Console", Courier, monospace;
 	height:40px;
 	
-	background-color: #660066;
+
 }
 .button1{
 cursor:pointer;
@@ -15,35 +17,42 @@ p.solid {
 
 }
 p {
-  color: white;
+  color: #28004d;
   text-align: center;
 
 } 
-.loginbox {
-background-image: url('../img/loginbox.jpg');
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 100px;
-  padding-left: 10px;
+#loginbox {
+  position: relative;
+  left: 30%;
+  top: 100px;
+  opacity:0.9;
 width:500px;
-height:250px;
+height:350px;
   font-size : 40px;
-  border-style: dashed;
-  color:white;
+ /*border-style: dashed;*/
+  color:#28004d;
+  background-color: #f3e6ff;
+  border-radius: 8px;
 }
-.body1 {
-background-image: url('../img/index.jpg');
-background-size: 100% 150%;
+#submit {
+	position: relative;
+	left:44%;
+	top:-40px;
+	
 }
 #admin {
-	color:white;
-	color:white;
+
 	position: absolute;
   right: 30px;
   top: 25px;
 	cursor:pointer;
 border-radius: 8px;
-background-color: #008CBA;
+
+}
+#createAccount {
+	position: relative;
+	left:30%;
+	top:-50px;
 }
 .table {
 	color:white;

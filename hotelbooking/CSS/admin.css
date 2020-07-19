@@ -1,0 +1,14 @@
+#Back{
+	position:relative;
+	left:10%;
+}
+#loginbox{
+	position: relative;
+  left: 40%;
+  top: 100px;
+  
+width:350px;
+height:250px;
+ background-color: #595959;
+ border-radius: 8px;
+}

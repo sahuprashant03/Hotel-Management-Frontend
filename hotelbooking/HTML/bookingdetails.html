@@ -1,13 +1,12 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Booking-details</title> 
 <link rel="stylesheet" href="../CSS/bookingdetails.css">
-<link rel = "icon" href =  
-"../img/icon.jpeg" 
-        type = "image/x-icon">
-		
-		<script src="../JS/bookingdetails.js">		</script>
-		<script>
+<link rel = "icon" href ="../img/icon.jpeg" type = "image/x-icon">
+<link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.css">
+<script src="../JS/bookingdetails.js">		</script>
+<script>
 		function roomtype(){
 	window.location="../HTML/roomtype.html";
 }</script>
@@ -23,41 +22,50 @@ setTimeout("disableBackButton()", 0);
 <body class="body">
 
 <form>
-<div class="header"><h1>Hyatt Hotel<h1><button type="button" class="button1" id="back" value="Back" onclick="roomtype()" >Back</button></div>
-<div id="here" class="form"><center><h2>Booking details<h1></center>
+<div id ="header">
+<nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-primary">
+<center>
+<h1 id="head"><font color="#f3e6ff">Welcome to Hyatt hotel</font><h1></center>
+<button class="btn btn-info" id="back" value="Back" onclick="test()" >Back</button>
+</nav>
+</div>
+<div id="bookingdetails">
+<center>
+<p class="solid"><font size="5" >Enter Booking details</font></center></p>
+<form>
 
-<table class="table1">
+<table class="table-sm" id="table">
     <tr>
-        <td><label>Name:</label></br></br></td>
-        <td><input type="text" id="name" ></br></br></td>
+        <td><label>Name:</label></br></td>
+        <td><input type="text" id="name" required /></br></td>
     </tr>
 	<tr>
-        <td><label>Gender:</label></br></br></td>
+        <td><label>Gender:</label></br></td>
         <td><select id="gender">
   <option value="male">Male</option>
   <option value="female">Female</option>
   <option value="other">Other</option>
-</select></br></br></td>
+</select></br></td>
     </tr>
 	<tr>
-        <td><label>No.of member:</label></br></br></td>
-        <td><input type="number" id="membercount" /></br></br></br></td>
+        <td><label>No. of member:</label></br></td>
+        <td><input type="number" id="membercount" step="0.01" max="3" required /></br></td>
     </tr>
 	<tr>
-        <td><label>Room type :</label></br></br></td>
-        <td><div id="roomtype"></div></br></br></td>
+        <td><label>Room type :</label></br></td>
+        <td><p id="roomtype"></p></br></td>
     </tr>
 	<tr>
-        <td><label>Mobile No.:</label></br></br></td>
-        <td><input type="number" id="MobileNo" /></br></br></td>
+        <td><label>Mobile No.:</label></br></td>
+        <td><input type="number" id="MobileNo" required /></br></td>
     </tr>
 	<tr>
         <td><label>check-in date:</label></br></br></td>
-        <td><input type="date" id="checkin" /></br></br></td>
+        <td><input type="date" id="checkin" required /></br></br></td>
     </tr>
 	<tr>
         <td><label>Check-out date:</label></br></br></td>
-        <td><input type="date" id="checkout" /></br></br></td>
+        <td><input type="date" id="checkout" required /></br></br></td>
     </tr>
 	
 	<tr>
@@ -69,10 +77,12 @@ setTimeout("disableBackButton()", 0);
 </select>	
 		</br></br></td>
     </tr>
-	
-	
 </table>
-<input type="button" class="button1" value="Submit" onclick="booking()"/></br>
+<input type="button" id="submit" class="btn btn-primary" value="Submit" onclick="booking()" /></br>
+
+</form>
+</div>
+
 
 </body>
 </html>

@@ -1,7 +1,51 @@
-.b1 {
+#header{
+	width:102%;
+}
+#userprofile{
+	position:relative;
+	right:-45%;
+	padding-right:0px;
+	color:white;
 	cursor:pointer;
-
-background-color: #99ccff;
+	border: 1px solid #400080;
+}
+#userInfo{
+	margin:-5px -10px;
+	width:150px;
+	height:40px;
+	/*border: 1px solid #400080;*/
+}
+#profilepic{
+	position:relative;
+	height:35px;
+	width:35px;
+	left:-50px;
+	border-radius: 100px;
+	
+	border: 1px solid #400080;
+	padding-left:-10px;
+}
+#profileDropdown{
+margin:0px -60px;
+border: 1px solid #400080;
+}
+#editPic{
+	color:black;
+	width:160px;
+}
+#userName{
+	position:relative;
+	left:10px;
+	top:-30px;
+}
+#userMenu{
+	width:160px;
+	height:40px;
+	
+}
+#buynow {
+	opacity:100;
+	
 }
 #price1 {
 	color :blue;
@@ -30,56 +74,57 @@ background-color: #99ccff;
   top: 10px;
   right: 0;
 }
+
 #list {
 	font-size:20px;
 	text-align:left;
-	color:#d580ff;
+	color:#26004d;
 }
 .root{
 background-image: url('../img/roombooking.jpg');
-background-size: 100% 100%;
+background-size: 1400px 700px;
 }
-.card1 {
-background-image: url('../img/card.jfif');
+#card1 {
+/*background-image: url('../img/card.jfif');*/
+background-color:#e6ccff;
+opacity:0.8;
 background-size: cover;
-float:left;
-margin: 65px;
-height:400;
-width:300;
-color:white;
+margin:20px 50px;
+
+height:400px;
+color:#1a0033;
 background-size: 100% 100%;
-border: 3px solid #73AD21;
+border: 3px solid #400080;
 text-align:center;
 }
-.card2 {
-background-image: url('../img/card.jfif');
+#card2 {
+/*background-image: url('../img/card.jfif');*/
+background-color:#e6ccff;
+opacity:0.8;
 background-size: cover;
-float:left;
-margin: 65px;
-height:400;
-width:300;
-color:white;
+margin:20px 50px;
+color:#1a0033;
 background-size: 100% 100%;
-border: 3px solid #73AD21;
+border: 3px solid #400080;
 text-align:center;
 }
-.card3 {
-background-image: url('../img/card.jfif');
+#card3 {
+/*background-image: url('../img/card.jfif');*/
+background-color:#e6ccff;
+opacity:0.8;
 background-size: cover;
-float:left;
-margin: 65px;
-height:400;
-width:300;
-color:white;
+margin:20px 50px;
+color:#1a0033;
 background-size: 100% 100%;
-border: 3px solid #73AD21;
+border: 3px solid #400080;
 text-align:center;
 }
 #logout {
-	margin-top:-20px;
-	margin-left:600px;
+	position:relative;
+	right:-60%;
+	padding-right:20px;
 	color:white;
 	cursor:pointer;
 
-background-color: red;
+
 }

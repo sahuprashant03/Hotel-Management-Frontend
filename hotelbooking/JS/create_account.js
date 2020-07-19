@@ -1,3 +1,20 @@
+window.onload = function(){
+fetch('http://localhost:9090/test1', {
+  method: 'GET', // or 'PUT'
+mode: 'cors'})
+.then(response => {
+var data= response.text();
+
+const p = Promise.resolve(data);
+p.then(value=> {
+	console.log(value);
+});	
+}).catch((error) => {
+
+document.getElementById('error').innerHTML='<div class="alert alert-dismissible alert-danger"><p id="error1">"Server is down!!"</p>';
+document.getElementById("button1").disabled= true;
+});	
+}
 function saveData(){
 var name = document.getElementById("name").value;
 var gender = document.getElementById("gender").value;
@@ -45,7 +62,7 @@ var tmp=  fetch('http://localhost:9090/useridCheck', {
 .then(response => {
 var res = response.text();
 var p = Promise.resolve(res);
-console.log(p);
+//console.log(p);
 p.then(value=> {
 	if(value=="success"){
 	alert("User ID already exist!!");}
@@ -58,7 +75,7 @@ p.then(value=> {
 .then(response => {
 var res = response.text();
 var p = Promise.resolve(res);
-console.log(p);
+//console.log(p);
 p.then(value=> {
 	if(value=="Customer Id created successfully!"){
 	alert(value);

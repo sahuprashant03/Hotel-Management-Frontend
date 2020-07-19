@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>  
 <head> 
-<title>Login-page</title> 
+<title>Admin-Login</title> 
+<link rel="stylesheet" href="../CSS/admin.css">
 <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
 <link rel = "icon" href =  
 "../img/icon.jpeg" 
         type = "image/x-icon">
 		
 		
-<script src="../JS/index.js"></script>
+<script src="../JS/adminlogin.js"></script>
 <script type = "text/javascript" >
+
 function disableBackButton()
 {
 window.history.forward();
@@ -20,17 +22,25 @@ window.location="../HTML/index.html";
 }
 </script>
 </head>  
-<body class="body" onload="disableBackButton()">
+<body class="body" >
+<div id="header">
+<nav class="navbar bg-primary">
+<h1>Hyatt Hotel<h1>
+<button type="button" class="btn btn-outline-info" id="Back" onclick="back()">Back</button>
+</nav><div id="error" ></div>
+</div>
+<div id="loginbox">
 
-<form class="form-inline">
-<div  class="container-fluid bg-primary text-white"><center><h1>Hyatt Hotel<h1></center><button type="button" class="btn btn-outline-info" id="Back" onclick="back()">Back</button></div>
-<div class="container-sm pt-5 border"><center><h2>Admin Login</h2></br><table>
-<tr><td><label>UserId    </label></td><td><input id="aid" class="form-control-sm" type="text" /></td></tr>
-<tr><td><label>Password  </label></td><td><input id="pswd" class="form-control-sm" type="text" /></td></tr>
+<center><h2>Admin Login</h2></br><table>
+<tr><td><font size="5" >UserId</font></td>
+<td><input id="aid" class="form-control-sm" type="text" required /></td></tr>
+<tr><td><label><font size="5">Password</font></label></td>
+<td><input id="pswd" class="form-control-sm" type="text" required /></td></tr>
 </table></br>
-<input type="button" class="btn btn-info" value="Login" onclick="getDetails()"/></br>
+<button id="loginbtn" class="btn-sm btn-info" onclick="getDetails()" value="Login" >Login</button></br>
 </center>
-</div></form>
-<p id="text1"></p>
+
+
+</div>
 </body>  
 </html>  
